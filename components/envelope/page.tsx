@@ -55,8 +55,12 @@ const Envelope: React.FC<EnvelopeProps> = ({
                 <div className="flex text-center ml-16 justify-center mb-32">
                     <div className="text-left">
                         <h3 className="text-lg text-red">To,</h3>
-                        <h3 className="font-bold text-lg text-red">Shri</h3>
-                        <p className="mt-2 underline">{recipientaddress}</p>
+                        <div className="flex">
+                            <h3 className="font-bold text-lg text-red">Shri</h3>
+                            <div className='ml-2'>
+                                <p className="underline">{recipientaddress}</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
