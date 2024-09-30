@@ -1,8 +1,10 @@
 "use client"
 import Envelope from '@/components/envelope/page'
+import MemoOfAppearance from '@/components/memo_of_appearance/page';
 import { StoreModal } from '@/components/modals/create-store-modal';
 import { useState } from 'react';
 import { usePDF } from 'react-to-pdf';
+import Sidebar from '@/components/sidebar/page';
 
 const HomePage = () => {
   const { toPDF, targetRef } = usePDF({ filename: 'page.pdf' });
@@ -18,35 +20,17 @@ const HomePage = () => {
     recipientaddress: ''
   });
 
-  const handleFormSubmit = (data: any) => {
-    setFormData({
-      name: data.name,
-      llmreplacement: data.degree,
-      designation: data.profession,
-      resident: data.residential,
-      mobileno: data.phoneno,
-      email: data.email,
-      recipientaddress: data.recipient
-    });
-  };
+
   return (
 
     <div>
-      <div>
-        <StoreModal onSubmit={handleFormSubmit} />
-      </div>
       <div ref={targetRef}>
-        <Envelope
-          name={formData.name}
-          llmreplacement={formData.llmreplacement}
-          designation={formData.designation}
-          resident={formData.resident}
-          mobileno={formData.mobileno}
-          email={formData.email}
-          recipientaddress={formData.recipientaddress}
-          imgUrl="/abcd" />
+        <Sidebar />
+
       </div>
-      <button onClick={() => toPDF()}>Download PDF</button>
+
+
+
     </div>
   )
 }
