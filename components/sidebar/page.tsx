@@ -39,10 +39,10 @@ const Sidebar: React.FC = () => {
     };
 
     return (
-        <div className="flex">
+        <div className="flex h-full">
             {/* Sidebar */}
             <div
-                className={`fixed top-0 left-0 w-64 h-full bg-blue-800 text-white flex flex-col justify-between p-5 transform transition-transform duration-300 ${isOpen ? 'translate-x-0' : '-translate-x-full'
+                className={` fixed top-0 left-0 w-64 h-full bg-blue-800 text-white flex flex-col justify-between p-5 transform transition-transform duration-300 ${isOpen ? 'translate-x-0' : '-translate-x-full'
                     } md:static md:translate-x-0`}
             >
                 {/* Logo */}
@@ -55,9 +55,9 @@ const Sidebar: React.FC = () => {
                     <button
                         className={`block py-2 px-3 mb-3 text-gray-200 hover:bg-blue-700 rounded ${activeSection === 'Form' ? 'bg-blue-700' : ''
                             }`}
-                        onClick={() => setActiveSection('Form')}
+                        onClick={() => setActiveSection('Home')}
                     >
-                        Form
+                        Home
                     </button>
                     <button
                         className={`block py-2 px-3 mb-3 text-gray-200 hover:bg-blue-700 rounded ${activeSection === 'Dashboard' ? 'bg-blue-700' : ''
@@ -102,26 +102,37 @@ const Sidebar: React.FC = () => {
                 <h2 className="text-3xl font-bold mb-5">Document</h2>
 
                 {/* Conditionally render content based on active section */}
-                {activeSection === 'Form' && <div><h1>
-                    Submit The Below Form.</h1><div>
-                        <StoreModal onSubmit={handleFormSubmit} />
-                    </div>
-
-                </div>}
+                {activeSection === 'Home' && <p>Visit Other Sections and Create and Download PDFs</p>}
 
 
-                {activeSection === 'Dashboard' && <Envelope
-                    name={formData.name}
-                    llmreplacement={formData.llmreplacement}
-                    designation={formData.designation}
-                    resident={formData.resident}
-                    mobileno={formData.mobileno}
-                    email={formData.email}
-                    recipientaddress={formData.recipientaddress}
-                    imgUrl="/abcd" />} {/* Render Envelope when Dashboard is clicked */}
+                {activeSection === 'Dashboard' &&
+                    <div>
+                        <div><h1>
+                            Submit The Below Form.</h1><div>
+                                <StoreModal onSubmit={handleFormSubmit} />
+                            </div>
+
+                        </div><Envelope
+                            name={formData.name}
+                            llmreplacement={formData.llmreplacement}
+                            designation={formData.designation}
+                            resident={formData.resident}
+                            mobileno={formData.mobileno}
+                            email={formData.email}
+                            recipientaddress={formData.recipientaddress}
+                            imgUrl="/abcd" />
+                    </div>} {/* Render Envelope when Dashboard is clicked */}
 
 
-                {activeSection === 'Settings' && <MemoOfAppearance />}
+                {activeSection === 'Settings' &&
+                    <div>
+                        <div><h1>
+                            Submit The Below Form.</h1><div>
+                                <StoreModal onSubmit={handleFormSubmit} />
+                            </div>
+
+                        </div><MemoOfAppearance />
+                    </div>}
 
 
                 {activeSection === 'Profile' && <p>This is the Profile section content.</p>}
