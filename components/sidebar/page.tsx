@@ -6,10 +6,10 @@ import { StoreModal } from '../modals/create-store-modal';
 import { usePDF } from 'react-to-pdf';
 
 const Sidebar: React.FC = () => {
-    // State to track the currently selected section (Home, Dashboard, etc.)
+    // State to track the currently selected section (Form, Dashboard, etc.)
 
     const { toPDF, targetRef } = usePDF({ filename: 'page.pdf' });
-    const [activeSection, setActiveSection] = useState('Home');
+    const [activeSection, setActiveSection] = useState('Form');
     const [isOpen, setIsOpen] = useState(false);
     const [formData, setFormData] = useState({
         name: '',
@@ -47,17 +47,17 @@ const Sidebar: React.FC = () => {
             >
                 {/* Logo */}
                 <div className="mb-8">
-                    <h1 className="text-2xl font-bold">MyApp</h1>
+                    <h1 className="text-2xl font-bold">PDfZenrator</h1>
                 </div>
 
                 {/* Navigation Links */}
                 <nav>
                     <button
-                        className={`block py-2 px-3 mb-3 text-gray-200 hover:bg-blue-700 rounded ${activeSection === 'Home' ? 'bg-blue-700' : ''
+                        className={`block py-2 px-3 mb-3 text-gray-200 hover:bg-blue-700 rounded ${activeSection === 'Form' ? 'bg-blue-700' : ''
                             }`}
-                        onClick={() => setActiveSection('Home')}
+                        onClick={() => setActiveSection('Form')}
                     >
-                        Home
+                        Form
                     </button>
                     <button
                         className={`block py-2 px-3 mb-3 text-gray-200 hover:bg-blue-700 rounded ${activeSection === 'Dashboard' ? 'bg-blue-700' : ''
@@ -99,12 +99,13 @@ const Sidebar: React.FC = () => {
                     Toggle Sidebar
                 </button>
 
-                <h2 className="text-3xl font-bold mb-5">Download</h2>
+                <h2 className="text-3xl font-bold mb-5">Document</h2>
 
                 {/* Conditionally render content based on active section */}
-                {activeSection === 'Home' && <div><div>
-                    <StoreModal onSubmit={handleFormSubmit} />
-                </div>
+                {activeSection === 'Form' && <div><h1>
+                    Submit The Below Form.</h1><div>
+                        <StoreModal onSubmit={handleFormSubmit} />
+                    </div>
 
                 </div>}
 
