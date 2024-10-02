@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import { format } from 'date-fns';
 
 import Envelope from '../envelope/page';
 import MemoOfAppearance from '../memo_of_appearance/page';
-import { StoreModal } from '../modals/create-store-modal';
+import { CoverStoreModal, EnvelopeStoreModal } from '../modals/create-store-modal';
 import { usePDF } from 'react-to-pdf';
 
 const Sidebar: React.FC = () => {
@@ -32,11 +33,41 @@ const Sidebar: React.FC = () => {
             recipientaddress: data.recipient
         });
     };
+    const [formData1, setFormData1] = useState({
+        court_name: '',
+        no: '',
+        fix_for: '',
+        petitioner_complaint: '',
+        respondent: '',
+        place: '',
+        date: '',
+        signature: '',
+        authorized_by: '',
+        address: '',
+        other_name: '',
+    });
+
+    const handleFormSubmitCover = (data: any) => {
+        setFormData1({
+            court_name: data.court_name,
+            no: data.no,
+            fix_for: data.fix_for,
+            petitioner_complaint: data.petitioner_complaint,
+            respondent: data.respondent,
+            place: data.place,
+            date: data.date,
+            signature: data.signature,
+            authorized_by: data.authorized_by,
+            address: data.address,
+            other_name: data.other_name,
+        });
+    };
 
 
     const toggleSidebar = () => {
         setIsOpen(!isOpen);
     };
+
 
     return (
         <div className="flex h-full">
@@ -109,7 +140,7 @@ const Sidebar: React.FC = () => {
                     <div>
                         <div><h1>
                             Submit The Below Form.</h1><div>
-                                <StoreModal onSubmit={handleFormSubmit} />
+                                <EnvelopeStoreModal onSubmit={handleFormSubmit} />
                             </div>
 
                         </div><Envelope
@@ -128,10 +159,22 @@ const Sidebar: React.FC = () => {
                     <div>
                         <div><h1>
                             Submit The Below Form.</h1><div>
-                                <StoreModal onSubmit={handleFormSubmit} />
+                                <CoverStoreModal onSubmit={handleFormSubmitCover} />
                             </div>
 
-                        </div><MemoOfAppearance />
+                        </div><MemoOfAppearance
+                            court_name={formData1.court_name}
+                            fix_for={formData1.fix_for}
+                            no={formData1.no}
+                            // date={formData1.date}
+                            petitioner_complaint={formData1.petitioner_complaint}
+                            respondent={formData1.respondent}
+                            place={formData1.place}
+                            signature={formData1.signature}
+                            authorized_by={formData1.authorized_by}
+                            other_name={formData1.other_name}
+                            date={formData1.date}
+                            address={formData1.address} />
                     </div>}
 
 

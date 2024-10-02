@@ -1,20 +1,24 @@
 "use client";
 
 import * as z from 'zod';
-// import { useStoreModal } from "@/hooks/use-store-modal";
-// import { Modal } from "@/components/ui/modal";
-import { ReactNode } from "react";
+
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '../ui/form';
-import { Input } from '../ui/input';
-import { Button } from '../ui/button';
+import EnvelopeForm from '../(forms)/(Envelope_Form)/page';
+import CoverForm from '../(forms)/(Cover_Form)/page';
 
-interface StoreModalProps {
-        onSubmit: (data: any) => void
+interface EnvelopeStoreModalProps {
+    onSubmit: (data: any) => void
 }
 
-const formSchema = z.object({
+
+interface CoverStoreModalProps {
+    onSubmit: (data: any) => void
+}
+
+
+
+const envelopeFormSchema = z.object({
     name: z.string().min(1),
     degree: z.string(),
     profession: z.string(),
@@ -26,18 +30,45 @@ const formSchema = z.object({
 
 });
 
-export const StoreModal = ({ onSubmit }: StoreModalProps) => {
+
+
+const coverFormSchema = z.object({
+    court_name: z.string().min(1),
+    no: z.string(),
+    fix_for: z.string(),
+    petitioner_complaint: z.string(),
+    respondent: z.string(),
+    place: z.string(),
+    date: z.string(),
+    signature: z.string(),
+    authorized_by: z.string(),
+    address: z.string(),
+    other_name: z.string(),
+
+});
+
+
+
+export const EnvelopeStoreModal = ({ onSubmit }: EnvelopeStoreModalProps) => {
     // Access the state and actions from the custom hook
     // const storeModal = useStoreModal();
 
-    const form = useForm<z.infer<typeof formSchema>>({
-        resolver: zodResolver(formSchema),
+    const envelopeForm = useForm<z.infer<typeof envelopeFormSchema>>({
+        resolver: zodResolver(envelopeFormSchema),
         defaultValues: {
             name: "",
         },
     });
-
-    const handleSubmit = async (values: z.infer<typeof formSchema>) => {
+    {
+        /*
+            This is a function called handleSubmit function this is a async fat arrow function which takes
+            values as prop and its type would be of the type envelopeFormSchema 
+            
+            also onSubmit function takes data as a parameter whose type is any defined in the 
+            EnvelopeStoreModalProps
+        */
+    }
+    const handleSubmit = async (values: z.infer<typeof envelopeFormSchema>) => {
         onSubmit(values);
     };
 
@@ -49,141 +80,42 @@ export const StoreModal = ({ onSubmit }: StoreModalProps) => {
         //   isOpen={storeModal.isOpen}
         //   onClose={storeModal.onClose}
         // >
-        <div>
-            <div className="space-y-4 py-2 pb-4">
-                <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)}>
-                        <FormField
-                            control={form.control}
-                            name='name'
-                            render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>Name:</FormLabel>
-                                    <FormControl>
-                                        <Input
-                                            placeholder='Please Enter Your Name'
-                                            {...field}
-                                        />
-                                    </FormControl>
-                                    <FormMessage>Required</FormMessage>
-                                </FormItem>
-                            )}
-                        />
-                        <FormField
-                            control={form.control}
-                            name='degree'
-                            render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>Degree:</FormLabel>
-                                    <FormControl>
-                                        <Input
-                                            placeholder='Please Enter the Qualification Degree'
-                                            {...field}
-                                        />
-                                    </FormControl>
-                                    <FormMessage>Required</FormMessage>
-                                </FormItem>
-                            )}
-                        />
-
-                        <FormField
-                            control={form.control}
-                            name='profession'
-                            render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>Profession:</FormLabel>
-                                    <FormControl>
-                                        <Input
-                                            placeholder='Please Enter Your Profession.'
-                                            {...field}
-                                        />
-                                    </FormControl>
-                                    <FormMessage>Required</FormMessage>
-                                </FormItem>
-                            )}
-                        />
-
-                        <FormField
-                            control={form.control}
-                            name='residential'
-                            render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>Residential Address</FormLabel>
-                                    <FormControl>
-                                        <Input
-                                            placeholder='Please Enter Your Residential Address.'
-                                            {...field}
-                                        />
-                                    </FormControl>
-                                    <FormMessage>Required</FormMessage>
-                                </FormItem>
-                            )}
-                        />
-
-                        <FormField
-                            control={form.control}
-                            name='phoneno'
-                            render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>Mobile Number</FormLabel>
-                                    <FormControl>
-                                        <Input
-                                            placeholder='Please Enter Your Phone Number.'
-                                            {...field}
-                                        />
-                                    </FormControl>
-                                    <FormMessage>Required</FormMessage>
-                                </FormItem>
-                            )}
-                        />
-
-                        <FormField
-                            control={form.control}
-                            name='email'
-                            render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>Email:</FormLabel>
-                                    <FormControl>
-                                        <Input
-                                            placeholder='Please Enter Your Email.'
-                                            {...field}
-                                        />
-                                    </FormControl>
-                                    <FormMessage>Required</FormMessage>
-                                </FormItem>
-                            )}
-                        />
-
-                        <FormField
-                            control={form.control}
-                            name='recipient'
-                            render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>Reciepient Address:</FormLabel>
-                                    <FormControl>
-                                        <Input
-                                            placeholder='Please Enter Recipient Address.'
-                                            {...field}
-                                        />
-                                    </FormControl>
-                                    <FormMessage>Required</FormMessage>
-                                </FormItem>
-                            )}
-                        />
-
-
-                        <div className='pt-6 space-x-2 flex items-center justify-end'>
-                            <Button
-                                variant='outline'
-                                onClick={() => { console.log('Closed it') }}>
-                                Cancel
-                            </Button>
-                            <Button type='submit'>Continue</Button>
-                        </div>
-                    </form>
-                </Form>
-            </div>
-        </div>
+        <EnvelopeForm
+            form={envelopeForm}
+            onSubmit={onSubmit}
+            handleSubmit={handleSubmit}
+        />
         // </Modal>
     );
 };
+
+export const CoverStoreModal = ({ onSubmit }: CoverStoreModalProps) => {
+
+    const coverForm = useForm<z.infer<typeof coverFormSchema>>({
+        resolver: zodResolver(coverFormSchema),
+        defaultValues: {
+            court_name: "",
+        },
+    });
+
+    const handleSubmit = async (values: z.infer<typeof coverFormSchema>) => {
+        onSubmit(values);
+    };
+
+    // Render the Modal component with values from the store
+    return (
+        // <Modal
+        //   title="Create Store"
+        //   description="This is the description of the store modal."
+        //   isOpen={storeModal.isOpen}
+        //   onClose={storeModal.onClose}
+        // >
+        <CoverForm
+            coverForm={coverForm}
+            onSubmit={onSubmit}
+            handleSubmit={handleSubmit}
+        />
+        // </Modal>
+    );
+
+}

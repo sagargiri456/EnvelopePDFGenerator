@@ -1,10 +1,38 @@
 import React from "react";
-const MemoOfAppearance = () => {
+
+
+interface MemoOfAppearanceProps {
+    court_name: string;
+    no: string;
+    fix_for: string;
+    petitioner_complaint: string;
+    respondent: string;
+    place: string;
+    date: string;
+    signature: string;
+    authorized_by: string;
+    address: string;
+    other_name: string;
+}
+
+const MemoOfAppearance: React.FC<MemoOfAppearanceProps> = ({
+    court_name,
+    no,
+    fix_for,
+    petitioner_complaint,
+    respondent,
+    place,
+    date,
+    signature,
+    authorized_by,
+    address,
+    other_name,
+}) => {
     return (
 
         <div className="w-full p-10 bg-blue-50  mx-auto shadow-lg rounded-lg">
             <div>
-                
+
             </div>
             <h1 className="text-center text-red-500 text-2xl font-bold mb-6">
                 Memo of Appearance
@@ -13,7 +41,7 @@ const MemoOfAppearance = () => {
                 <div className="text-sm flex font-semibold mb-2">
                     <h1 className=" w-1/3 ">IN THE COURT OF</h1>
                     <div className="input_for_court_name pl-1 w-full border-b-2 border-black-900">
-                        <p>Hello World</p>
+                        <p>{court_name}</p>
                     </div>
                 </div>
 
@@ -25,11 +53,11 @@ const MemoOfAppearance = () => {
                     <div className="w-1/3 text-sm">Civil / Criminal / Revision</div>
                     <div className="flex w-2/3 text-sm">
                         <h2>No.</h2>
-                        <p className="pl-4 border-dotted border-b-2 border-black-900">hello world</p>
+                        <p className="pl-4 border-dotted border-b-2 border-black-900">{no}</p>
                     </div>
                     <div className="flex w-2/3 text-sm">
                         <h2>Fix for</h2>
-                        <p className="pl-4 border-dotted border-b-2 border-black-900">hello world</p>
+                        <p className="pl-4 border-dotted border-b-2 border-black-900">{fix_for}</p>
                     </div>
                 </div>
                 <div className="flex space-x-2 mb-4">
@@ -60,7 +88,7 @@ const MemoOfAppearance = () => {
                         </g>
                     </svg>
                 </div>
-                <p className="underline flex text-center">Hello World</p>
+                <p className="underline flex text-center">{petitioner_complaint}</p>
             </div>
 
             <div className="text-center text-red-500 font-bold text-xl mb-6">VERSUS</div>
@@ -79,30 +107,30 @@ const MemoOfAppearance = () => {
                         </g>
                     </svg>
                 </div>
-                <p className="underline flex text-center">Hello World</p>
+                <p className="underline flex text-center">{respondent}</p>
             </div>
 
 
 
 
             <div className="text-gray-700 border-black-300 bodrder-dotted border-b-4 text-sm mb-4">
-                I/We, <span className="font-bold text-2xl text-red-400">Shiv Poojan Singh,</span>,
+                I/We, <span className="font-bold text-2xl text-red-400">Shiv Poojan Singh,{other_name}</span>,
             </div>
             <p>do hereby declare that I/We have been duly engaged, instructed, and authorized by:</p>
 
             <div className="flex items-center space-x-2 mb-4">
-                <p className="underline">jsalkdfjdsfsdkjfhkjsdhfkjsdakjfhsjkldfsdhaflkjsdfhksjfh as sdkfhaskd fk</p>
+                <p className="underline">{authorized_by}</p>
             </div>
             <p>to appear and plead the above Case-Appeal /Revision/Petition/Accused on his/their behalf</p>
 
 
             <div className="flex items-center justify-between">
                 <div className="justify-start text-left mb-6">
-                    <div className="font-bold">Place: hello world</div>
-                    <div>Date: hello world </div>
+                    <div className="font-bold">Place: {place}</div>
+                    <div>Date:<span> </span> </div>
                     <div className="flex mt-8 text-sm">
                         <label className="font-bold">Signature of Client:</label>
-                        <p className="underline ml-2">hello world</p>
+                        <p className="underline ml-2">{signature}</p>
                     </div>
                 </div>
 
@@ -110,7 +138,7 @@ const MemoOfAppearance = () => {
                     <div className="font-bold text-2xl text-red-400">Shiv Poojan Singh</div>
                     <div>Advocate</div>
                     <div className="text-2xl">Chamber of Law Solutions</div>
-                    <div className="text-start border-red-300 border-2 underline">jfjfajf  fasjf jsdkaj fjf kas address hello world jlsfja  jfas jff a fjfas flsk fj</div>
+                    <div className="text-start border-red-300 border-2 underline">{address}</div>
                 </div>
             </div>
         </div>
