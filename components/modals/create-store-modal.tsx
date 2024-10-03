@@ -70,6 +70,7 @@ export const EnvelopeStoreModal = ({ onSubmit }: EnvelopeStoreModalProps) => {
     }
     const handleSubmit = async (values: z.infer<typeof envelopeFormSchema>) => {
         onSubmit(values);
+        
     };
 
     // Render the Modal component with values from the store

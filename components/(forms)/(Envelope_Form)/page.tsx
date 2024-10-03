@@ -49,7 +49,6 @@ const EnvelopeForm = ({ form, onSubmit,handleSubmit }: CoverFormProps) => {
                                 </FormItem>
                             )}
                         />
-
                         <FormField
                             control={form.control}
                             name='profession'

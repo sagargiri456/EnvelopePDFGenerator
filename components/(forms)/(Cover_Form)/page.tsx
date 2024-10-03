@@ -19,7 +19,7 @@ const CoverForm = ({ coverForm, onSubmit, handleSubmit }: EnvelopeModalProps) =>
                     <form onSubmit={coverForm.handleSubmit(onSubmit)}>
                         <FormField
                             control={coverForm.control}
-                            name='name'
+                            name='court_name'
                             render={({ field }) => (
                                 <FormItem>
                                     <FormLabel>Name:</FormLabel>
@@ -133,7 +133,7 @@ const CoverForm = ({ coverForm, onSubmit, handleSubmit }: EnvelopeModalProps) =>
                                     </FormControl>
                                     <FormMessage>Required</FormMessage>
                                 </FormItem>
-                            )}
+                            )} 
                         />
                         <FormField
                             control={coverForm.control}
@@ -207,7 +207,9 @@ const CoverForm = ({ coverForm, onSubmit, handleSubmit }: EnvelopeModalProps) =>
                                 onClick={() => { console.log('Closed it') }}>
                                 Cancel
                             </Button>
-                            <Button type='submit'>Continue</Button>
+                            <Button
+                                type='submit'
+                                onClick={() => { console.log("Continue Button clicked") }}>Continue</Button>
                         </div>
                     </form>
                 </Form>

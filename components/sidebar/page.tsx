@@ -48,6 +48,7 @@ const Sidebar: React.FC = () => {
     });
 
     const handleFormSubmitCover = (data: any) => {
+        console.log(data.date   )
         setFormData1({
             court_name: data.court_name,
             no: data.no,
@@ -166,14 +167,13 @@ const Sidebar: React.FC = () => {
                             court_name={formData1.court_name}
                             fix_for={formData1.fix_for}
                             no={formData1.no}
-                            // date={formData1.date}
+                            date={formData1.date}
                             petitioner_complaint={formData1.petitioner_complaint}
                             respondent={formData1.respondent}
                             place={formData1.place}
                             signature={formData1.signature}
                             authorized_by={formData1.authorized_by}
                             other_name={formData1.other_name}
-                            date={formData1.date}
                             address={formData1.address} />
                     </div>}
 

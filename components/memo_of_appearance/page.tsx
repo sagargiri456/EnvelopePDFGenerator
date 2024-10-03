@@ -28,6 +28,7 @@ const MemoOfAppearance: React.FC<MemoOfAppearanceProps> = ({
     address,
     other_name,
 }) => {
+   
     return (
 
         <div className="w-full p-10 bg-blue-50  mx-auto shadow-lg rounded-lg">
