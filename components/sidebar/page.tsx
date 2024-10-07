@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { format } from 'date-fns';
 
+import File from '../file/page';
 import Envelope from '../envelope/page';
 import MemoOfAppearance from '../memo_of_appearance/page';
-import { CoverStoreModal, EnvelopeStoreModal } from '../modals/create-store-modal';
+import { GlobalStoreModal, CoverStoreModal, EnvelopeStoreModal } from '../modals/create-store-modal';
 import { usePDF } from 'react-to-pdf';
+import LegalDoc from '../legaldoc/page';
+
 
 const Sidebar: React.FC = () => {
     // State to track the currently selected section (Form, Dashboard, etc.)
@@ -33,6 +36,49 @@ const Sidebar: React.FC = () => {
             recipientaddress: data.recipient
         });
     };
+    const [formDataGlobal, setFormDataGlobal] = useState({
+        name: '',
+        llmreplacement: '',
+        designation: '',
+        resident: '',
+        mobileno: '',
+        email: '',
+        recipientaddress: '',
+        court_name: '',
+        no: '',
+        fix_for: '',
+        petitioner_complaint: '',
+        respondent: '',
+        place: '',
+        date: '',
+        signature: '',
+        authorized_by: '',
+        address: '',
+        other_name: '',
+    });
+
+    const handleFormSubmitGlobal = (data: any) => {
+        setFormDataGlobal({
+            name: data.name,
+            llmreplacement: data.degree,
+            designation: data.profession,
+            resident: data.residential,
+            mobileno: data.phoneno,
+            email: data.email,
+            recipientaddress: data.recipient,
+            court_name: data.court_name,
+            no: data.no,
+            fix_for: data.fix_for,
+            petitioner_complaint: data.petitioner_complaint,
+            respondent: data.respondent,
+            place: data.place,
+            date: data.date,
+            signature: data.signature,
+            authorized_by: data.authorized_by,
+            address: data.address,
+            other_name: data.other_name,
+        });
+    };
     const [formData1, setFormData1] = useState({
         court_name: '',
         no: '',
@@ -48,7 +94,7 @@ const Sidebar: React.FC = () => {
     });
 
     const handleFormSubmitCover = (data: any) => {
-        console.log(data.date   )
+        console.log(data.date)
         setFormData1({
             court_name: data.court_name,
             no: data.no,
@@ -87,9 +133,9 @@ const Sidebar: React.FC = () => {
                     <button
                         className={`block py-2 px-3 mb-3 text-gray-200 hover:bg-blue-700 rounded ${activeSection === 'Form' ? 'bg-blue-700' : ''
                             }`}
-                        onClick={() => setActiveSection('Home')}
+                        onClick={() => setActiveSection('Form')}
                     >
-                        Home
+                        Form
                     </button>
                     <button
                         className={`block py-2 px-3 mb-3 text-gray-200 hover:bg-blue-700 rounded ${activeSection === 'Dashboard' ? 'bg-blue-700' : ''
@@ -110,14 +156,26 @@ const Sidebar: React.FC = () => {
                             }`}
                         onClick={() => setActiveSection('Profile')}
                     >
-                        Other1
+                        File
+                    </button>
+                    <button
+                        className={`block py-2 px-3 mb-3 text-gray-200 hover:bg-blue-700 rounded ${activeSection === 'LegalDoc' ? 'bg-blue-700' : ''
+                            }`}
+                        onClick={() => setActiveSection('LegalDoc')}
+                    >
+                        Legal Document
                     </button>
                 </nav>
 
                 {/* Footer/Logout */}
                 <div>
+                    <button onClick={() => toPDF()} className="block py-2 px-3 text-gray-200 hover:bg-blue-700 rounded">
+                        Download All PDfs
+                    </button>
+                </div>
+                <div>
                     <button className="block py-2 px-3 text-gray-200 hover:bg-blue-700 rounded">
-                        Other2
+                        Logout
                     </button>
                 </div>
             </div>
@@ -134,17 +192,15 @@ const Sidebar: React.FC = () => {
                 <h2 className="text-3xl font-bold mb-5">Document</h2>
 
                 {/* Conditionally render content based on active section */}
-                {activeSection === 'Home' && <p>Visit Other Sections and Create and Download PDFs</p>}
+                {activeSection === 'Form' && <div><GlobalStoreModal onSubmit={handleFormSubmit} /></div>}
 
 
                 {activeSection === 'Dashboard' &&
                     <div>
-                        <div><h1>
-                            Submit The Below Form.</h1><div>
-                                <EnvelopeStoreModal onSubmit={handleFormSubmit} />
-                            </div>
+                        {/* <div><h1>Submit The Below Form.</h1><div><EnvelopeStoreModal onSubmit={handleFormSubmit} /></div>
 
-                        </div><Envelope
+                        </div> */}
+                        <Envelope
                             name={formData.name}
                             llmreplacement={formData.llmreplacement}
                             designation={formData.designation}
@@ -158,12 +214,13 @@ const Sidebar: React.FC = () => {
 
                 {activeSection === 'Settings' &&
                     <div>
-                        <div><h1>
+                        {/* <div><h1>
                             Submit The Below Form.</h1><div>
                                 <CoverStoreModal onSubmit={handleFormSubmitCover} />
                             </div>
 
-                        </div><MemoOfAppearance
+                        </div> */}
+                        <MemoOfAppearance
                             court_name={formData1.court_name}
                             fix_for={formData1.fix_for}
                             no={formData1.no}
@@ -178,8 +235,9 @@ const Sidebar: React.FC = () => {
                     </div>}
 
 
-                {activeSection === 'Profile' && <p>This is the Profile section content.</p>}
-                <button onClick={() => toPDF()}>Download PDF</button>
+                {activeSection === 'Profile' && <File />}
+                {activeSection === 'LegalDoc' && <LegalDoc />}
+
             </div>
         </div>
     );

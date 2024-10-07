@@ -6,8 +6,12 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import EnvelopeForm from '../(forms)/(Envelope_Form)/page';
 import CoverForm from '../(forms)/(Cover_Form)/page';
+import GlobalForm from '../(forms)/(main_form)/page';
 
 interface EnvelopeStoreModalProps {
+    onSubmit: (data: any) => void
+}
+interface GlobalStoreModalProps {
     onSubmit: (data: any) => void
 }
 
@@ -26,6 +30,28 @@ const envelopeFormSchema = z.object({
     phoneno: z.string(),
     email: z.string(),
     recipient: z.string()
+
+
+});
+const globalFormSchema = z.object({
+    name: z.string().min(1),
+    degree: z.string(),
+    profession: z.string(),
+    residential: z.string(),
+    phoneno: z.string(),
+    email: z.string(),
+    recipient: z.string(),
+    court_name: z.string().min(1),
+    no: z.string(),
+    fix_for: z.string(),
+    petitioner_complaint: z.string(),
+    respondent: z.string(),
+    place: z.string(),
+    date: z.string(),
+    signature: z.string(),
+    authorized_by: z.string(),
+    address: z.string(),
+    other_name: z.string(),
 
 
 });
@@ -115,6 +141,49 @@ export const CoverStoreModal = ({ onSubmit }: CoverStoreModalProps) => {
             coverForm={coverForm}
             onSubmit={onSubmit}
             handleSubmit={handleSubmit}
+        />
+        // </Modal>
+    );
+
+}
+export const GlobalStoreModal = ({ onSubmit }: GlobalStoreModalProps) => {
+
+    const coverForm = useForm<z.infer<typeof globalFormSchema>>({
+        resolver: zodResolver(coverFormSchema),
+        defaultValues: {
+            court_name: "",
+        },
+    });
+
+    const envelopeForm = useForm<z.infer<typeof envelopeFormSchema>>({
+        resolver: zodResolver(envelopeFormSchema),
+        defaultValues: {
+            name: "",
+        },
+    });
+
+    const handleSubmit = async (values: z.infer<typeof coverFormSchema>) => {
+        onSubmit(values);
+    };
+    const handleSubmitFormGlobal = async (values: z.infer<typeof envelopeFormSchema>) => {
+        onSubmit(values);
+        
+    };
+
+    // Render the Modal component with values from the store
+    return (
+        // <Modal
+        //   title="Create Store"
+        //   description="This is the description of the store modal."
+        //   isOpen={storeModal.isOpen}
+        //   onClose={storeModal.onClose}
+        // >
+        <GlobalForm
+            form={envelopeForm}
+            coverForm={coverForm}
+            onSubmit={onSubmit}
+            handleSubmit={handleSubmit}
+            handleSubmitFormGlobal={handleSubmitFormGlobal}
         />
         // </Modal>
     );
