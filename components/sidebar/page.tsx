@@ -60,7 +60,7 @@ const Sidebar: React.FC = () => {
         brief_for: '',
         opposite_counsel: '',
         books_citation: '',
-        clients_contact_no:'',
+        clients_contact_no: '',
     });
 
     const handleFormSubmitGlobal = (data: any) => {
@@ -91,7 +91,7 @@ const Sidebar: React.FC = () => {
             brief_for: data.brief_for,
             books_citation: data.books_citation,
             opposite_counsel: data.opposite_counsel,
-            clients_contact_no:data.clients_contact_no,
+            clients_contact_no: data.clients_contact_no,
         });
     };
     const [formData1, setFormData1] = useState({
@@ -149,7 +149,7 @@ const Sidebar: React.FC = () => {
 
                 {/* Navigation Links */}
                 <nav>
-                    <button
+                    {/* <button
                         className={`block py-2 px-3 mb-3 text-gray-200 hover:bg-blue-700 rounded ${activeSection === 'Form' ? 'bg-blue-700' : ''
                             }`}
                         onClick={() => setActiveSection('Form')}
@@ -169,7 +169,7 @@ const Sidebar: React.FC = () => {
                         onClick={() => setActiveSection('Settings')}
                     >
                         Cover
-                    </button>
+                    </button> */}
                     <button
                         className={`block py-2 px-3 mb-3 text-gray-200 hover:bg-blue-700 rounded ${activeSection === 'Profile' ? 'bg-blue-700' : ''
                             }`}
@@ -177,13 +177,13 @@ const Sidebar: React.FC = () => {
                     >
                         File
                     </button>
-                    <button
+                    {/* <button
                         className={`block py-2 px-3 mb-3 text-gray-200 hover:bg-blue-700 rounded ${activeSection === 'LegalDoc' ? 'bg-blue-700' : ''
                             }`}
                         onClick={() => setActiveSection('LegalDoc')}
                     >
                         Legal Document
-                    </button>
+                    </button> */}
                 </nav>
 
                 {/* Footer/Logout */}
@@ -260,55 +260,58 @@ const Sidebar: React.FC = () => {
                         <div>
                             <GlobalStoreModal onSubmit={handleFormSubmitGlobal} />
                         </div>
-
-                        <File
-                            name={formDataGlobal.name}
-                            llmreplacement={formDataGlobal.llmreplacement}
-                            designation={formDataGlobal.designation}
-                            resident={formDataGlobal.resident}
-                            mobileno={formDataGlobal.mobileno}
-                            email={formDataGlobal.email}
-                            recipientaddress={formDataGlobal.recipientaddress}
-                            imgUrl="/abcd"
-                            no={formDataGlobal.no}
-                            fix_for={formDataGlobal.fix_for}
-                            petitioner_complaint={formDataGlobal.petitioner_complaint}
-                            respondent={formDataGlobal.respondent}
-                            place={formDataGlobal.place}
-                            date={formDataGlobal.date}
-                            signature={formDataGlobal.signature}
-                            persion2={formDataGlobal.persion2}
-                            authorized_by={formDataGlobal.authorized_by}
-                            address={formDataGlobal.address}
-                            other_name={formDataGlobal.other_name}
-                            persion1={formDataGlobal.persion1}
-                            brief_for={formDataGlobal.brief_for}
-                            court_name={formDataGlobal.court_name}
-                            books_citation={formDataGlobal.books_citation}
-                            opposite_counsel={formDataGlobal.opposite_counsel}
-                            clients_contact_no={formDataGlobal.clients_contact_no}
-                        />
-                        <MemoOfAppearance
-                            court_name={formDataGlobal.court_name}
-                            fix_for={formDataGlobal.fix_for}
-                            no={formDataGlobal.no}
-                            date={formDataGlobal.date}
-                            petitioner_complaint={formDataGlobal.petitioner_complaint}
-                            respondent={formDataGlobal.respondent}
-                            place={formDataGlobal.place}
-                            signature={formDataGlobal.signature}
-                            authorized_by={formDataGlobal.authorized_by}
-                            other_name={formDataGlobal.other_name}
-                            address={formDataGlobal.address} />
-                        <Envelope
-                            name={formDataGlobal.name}
-                            llmreplacement={formDataGlobal.llmreplacement}
-                            designation={formDataGlobal.designation}
-                            resident={formDataGlobal.resident}
-                            mobileno={formDataGlobal.mobileno}
-                            email={formDataGlobal.email}
-                            recipientaddress={formDataGlobal.recipientaddress}
-                            imgUrl="/abcd" />
+                        <div ref={targetRef}>
+                            <File
+                                name={formDataGlobal.name}
+                                llmreplacement={formDataGlobal.llmreplacement}
+                                designation={formDataGlobal.designation}
+                                resident={formDataGlobal.resident}
+                                mobileno={formDataGlobal.mobileno}
+                                email={formDataGlobal.email}
+                                recipientaddress={formDataGlobal.recipientaddress}
+                                imgUrl="/abcd"
+                                no={formDataGlobal.no}
+                                fix_for={formDataGlobal.fix_for}
+                                petitioner_complaint={formDataGlobal.petitioner_complaint}
+                                respondent={formDataGlobal.respondent}
+                                place={formDataGlobal.place}
+                                date={formDataGlobal.date}
+                                signature={formDataGlobal.signature}
+                                persion2={formDataGlobal.persion2}
+                                authorized_by={formDataGlobal.authorized_by}
+                                address={formDataGlobal.address}
+                                other_name={formDataGlobal.other_name}
+                                persion1={formDataGlobal.persion1}
+                                brief_for={formDataGlobal.brief_for}
+                                court_name={formDataGlobal.court_name}
+                                books_citation={formDataGlobal.books_citation}
+                                opposite_counsel={formDataGlobal.opposite_counsel}
+                                clients_contact_no={formDataGlobal.clients_contact_no}
+                            />
+                            <MemoOfAppearance
+                                court_name={formDataGlobal.court_name}
+                                fix_for={formDataGlobal.fix_for}
+                                no={formDataGlobal.no}
+                                date={formDataGlobal.date}
+                                petitioner_complaint={formDataGlobal.petitioner_complaint}
+                                respondent={formDataGlobal.respondent}
+                                place={formDataGlobal.place}
+                                signature={formDataGlobal.signature}
+                                authorized_by={formDataGlobal.authorized_by}
+                                other_name={formDataGlobal.other_name}
+                                address={formDataGlobal.address} />
+                            <Envelope
+                                name={formDataGlobal.name}
+                                llmreplacement={formDataGlobal.llmreplacement}
+                                designation={formDataGlobal.designation}
+                                resident={formDataGlobal.resident}
+                                mobileno={formDataGlobal.mobileno}
+                                email={formDataGlobal.email}
+                                recipientaddress={formDataGlobal.recipientaddress}
+                                imgUrl="/abcd" />
+                            <LegalDoc />
+                        </div>
+                        <button onClick={() => toPDF()}>Download PDF</button>
                     </div>
                 }
                 {activeSection === 'LegalDoc' && <LegalDoc />}

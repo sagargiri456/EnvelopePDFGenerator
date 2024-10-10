@@ -56,30 +56,6 @@ const File: React.FC<MainFormProps> = ({
     books_citation,
     clients_contact_no,
 }) => {
-    console.log("Starting persion 1 and 2")
-    console.log(name)
-    console.log(llmreplacement)
-    console.log(designation)
-    console.log(resident)
-    console.log(mobileno)
-    console.log(email);
-    console.log(recipientaddress)
-    console.log(imgUrl)
-    console.log(no)
-    console.log(fix_for)
-    console.log(petitioner_complaint)
-    console.log(respondent)
-    console.log(place)
-    console.log(date)
-    console.log(signature)
-    console.log(persion2);
-    console.log(authorized_by)
-    console.log(address)
-    console.log(other_name)
-    console.log(persion1)
-    console.log(brief_for)
-    console.log(books_citation)
-    console.log(opposite_counsel)
     return (
         <div className="max-w-3xl mx-auto p-4 bg-yellow-100 border border-gray-300 rounded-lg shadow-md">
             {/* Header */}
