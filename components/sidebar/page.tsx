@@ -57,10 +57,15 @@ const Sidebar: React.FC = () => {
         other_name: '',
         persion1: '',
         persion2: '',
+        brief_for: '',
+        opposite_counsel: '',
+        books_citation: '',
     });
 
     const handleFormSubmitGlobal = (data: any) => {
+        console.log("sidebar.tsx -> handleFormSubmitGlobal()")
         console.log(data.name)
+        console.log(data.court_name)
         setFormDataGlobal({
             name: data.name,
             llmreplacement: data.degree,
@@ -82,6 +87,9 @@ const Sidebar: React.FC = () => {
             other_name: data.other_name,
             persion1: data.persion1,
             persion2: data.persion2,
+            brief_for: data.brief_for,
+            books_citation: data.books_citation,
+            opposite_counsel: data.opposite_counsel,
         });
     };
     const [formData1, setFormData1] = useState({
@@ -99,7 +107,11 @@ const Sidebar: React.FC = () => {
     });
 
     const handleFormSubmitCover = (data: any) => {
+        console.log("Sidebar.tsx -> handleFormSubmitGlobal")
         console.log(data.date)
+        console.log(data.court_name)
+        console.log("Getting Out of the handleGlobalForm ")
+
         setFormData1({
             court_name: data.court_name,
             no: data.no,
@@ -248,17 +260,6 @@ const Sidebar: React.FC = () => {
                         </div>
 
                         <File
-                            court_name={formDataGlobal.court_name}
-                            fix_for={formDataGlobal.fix_for}
-                            no={formDataGlobal.no}
-                            date={formDataGlobal.date}
-                            petitioner_complaint={formDataGlobal.petitioner_complaint}
-                            respondent={formDataGlobal.respondent}
-                            place={formDataGlobal.place}
-                            signature={formDataGlobal.signature}
-                            authorized_by={formDataGlobal.authorized_by}
-                            other_name={formDataGlobal.other_name}
-                            address={formDataGlobal.address}
                             name={formDataGlobal.name}
                             llmreplacement={formDataGlobal.llmreplacement}
                             designation={formDataGlobal.designation}
@@ -267,8 +268,22 @@ const Sidebar: React.FC = () => {
                             email={formDataGlobal.email}
                             recipientaddress={formDataGlobal.recipientaddress}
                             imgUrl="/abcd"
-                            persion1={formDataGlobal.persion1}
+                            no={formDataGlobal.no}
+                            fix_for={formDataGlobal.fix_for}
+                            petitioner_complaint={formDataGlobal.petitioner_complaint}
+                            respondent={formDataGlobal.respondent}
+                            place={formDataGlobal.place}
+                            date={formDataGlobal.date}
+                            signature={formDataGlobal.signature}
                             persion2={formDataGlobal.persion2}
+                            authorized_by={formDataGlobal.authorized_by}
+                            address={formDataGlobal.address}
+                            other_name={formDataGlobal.other_name}
+                            persion1={formDataGlobal.persion1}
+                            brief_for={formDataGlobal.brief_for}
+                            court_name={formDataGlobal.court_name}
+                            books_citation={formDataGlobal.books_citation}
+                            opposite_counsel={formDataGlobal.opposite_counsel}
                         />
                         <MemoOfAppearance
                             court_name={formDataGlobal.court_name}

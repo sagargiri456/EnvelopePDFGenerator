@@ -23,6 +23,9 @@ interface MainFormProps {
     other_name: string;
     persion1: string;
     persion2: string;
+    brief_for: string;
+    opposite_counsel: string;
+    books_citation: string;
 }
 
 const File: React.FC<MainFormProps> = ({
@@ -47,13 +50,35 @@ const File: React.FC<MainFormProps> = ({
     other_name,
     persion1,
     persion2,
+    brief_for,
+    opposite_counsel,
+    books_citation,
 }) => {
-    const [value, setValue] = useState(' ');
-    const handleOnChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
-        setValue(e.target.value);
-    };
-
-    return ( 
+    console.log("Starting persion 1 and 2")
+    console.log(name)
+    console.log(llmreplacement)
+    console.log(designation)
+    console.log(resident)
+    console.log(mobileno)
+    console.log(email);
+    console.log(recipientaddress)
+    console.log(imgUrl)
+    console.log(no)
+    console.log(fix_for)
+    console.log(petitioner_complaint)
+    console.log(respondent)
+    console.log(place)
+    console.log(date)
+    console.log(signature)
+    console.log(persion2);
+    console.log(authorized_by)
+    console.log(address)
+    console.log(other_name)
+    console.log(persion1)
+    console.log(brief_for)
+    console.log(books_citation)
+    console.log(opposite_counsel)
+    return (
         <div className="max-w-3xl mx-auto p-4 bg-yellow-100 border border-gray-300 rounded-lg shadow-md">
             {/* Header */}
             <div className="text-center">
@@ -95,12 +120,7 @@ const File: React.FC<MainFormProps> = ({
                 <div className="grid grid-cols-2 gap-4 mb-4">
                     <div>
                         <label className="text-sm font-semibold">Before the Hon'ble</label>
-                        <input
-                            type="text"
-                            className="w-full bg-transparent p-1"
-                            value={value}
-                            onChange={handleOnChange}
-                        />
+                        <p className="w-full bg-transparent p-1">{court_name}</p>
                         <hr className="border-2 border-gray-800 shadow-lg my-4" />
                     </div>
                 </div>
@@ -120,30 +140,19 @@ const File: React.FC<MainFormProps> = ({
 
                 <div className="mb-4">
                     <label className="text-sm font-semibold">Brief For:</label>
-                    <input
-                        type="text"
-                        className="w-full bg-transparent p-1"
-                        value={value}
-                        onChange={handleOnChange}
-                    />
+                    <p className="w-full bg-transparent p-1">{brief_for}</p>
                     <hr className="border-2 border-gray-800 shadow-lg my-4" />
                 </div>
 
                 <div className="mb-4">
                     <label className="text-sm font-semibold">Opposite Counsel:</label>
-                    <input
-                        type="text"
-                        className="w-full bg-transparent p-1"
-                    />
+                    <p>{opposite_counsel}</p>
                     <hr className="border-2 border-gray-800 shadow-lg my-4" />
                 </div>
 
                 <div className="mb-4">
                     <label className="text-sm font-semibold">Books & Citation:</label>
-                    <input
-                        type="text"
-                        className="w-full bg-transparent p-1"
-                    />
+                    <p>{books_citation}</p>
                     <hr className="border-2 border-gray-800 shadow-lg my-4" />
                 </div>
             </div>

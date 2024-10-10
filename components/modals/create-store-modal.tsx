@@ -54,6 +54,7 @@ const globalFormSchema = z.object({
     other_name: z.string(),
 
 
+
 });
 
 
@@ -148,19 +149,14 @@ export const CoverStoreModal = ({ onSubmit }: CoverStoreModalProps) => {
 }
 export const GlobalStoreModal = ({ onSubmit }: GlobalStoreModalProps) => {
 
-    const coverForm = useForm<z.infer<typeof globalFormSchema>>({
-        resolver: zodResolver(coverFormSchema),
+    const globalForm = useForm<z.infer<typeof globalFormSchema>>({
+        resolver: zodResolver(globalFormSchema),
         defaultValues: {
             court_name: "",
         },
     });
 
-    const envelopeForm = useForm<z.infer<typeof envelopeFormSchema>>({
-        resolver: zodResolver(envelopeFormSchema),
-        defaultValues: {
-            name: "",
-        },
-    });
+    
 
     const handleSubmit = async (values: z.infer<typeof coverFormSchema>) => {
         onSubmit(values);
@@ -176,8 +172,7 @@ export const GlobalStoreModal = ({ onSubmit }: GlobalStoreModalProps) => {
         //   onClose={storeModal.onClose}
         // >
         <GlobalForm
-            form={envelopeForm}
-            coverForm={coverForm}
+            globalForm={globalForm}
             onSubmit={onSubmit}
             handleSubmit={handleSubmit}
         />

@@ -7,25 +7,19 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 
 interface globalFormProps {
-    form: any;
-    coverForm: any;
+    globalForm: any;
     onSubmit: (data: any) => void;
-    handleSubmit: (data: any) => void
+    handleSubmit: (data: any) => void;
 }
 
-const GlobalForm = ({ coverForm, form, onSubmit, handleSubmit }: globalFormProps) => {
-    const [value, setValue] = useState('');
-    const handleOnChange = (e: { target: { value: React.SetStateAction<string>; }; }) => {
-        setValue(e.target.value);
-    }
-
+const GlobalForm = ({ globalForm, onSubmit, handleSubmit }: globalFormProps) => {
     return (
         <div>
             <div className="space-y-4 py-2 pb-4">
-                <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)}>
+                <Form {...globalForm}>
+                    <form onSubmit={globalForm.handleSubmit(onSubmit)}>
                         <FormField
-                            control={coverForm.control}
+                            control={globalForm.control}
                             name='court_name'
                             render={({ field }) => (
                                 <FormItem>
@@ -40,7 +34,7 @@ const GlobalForm = ({ coverForm, form, onSubmit, handleSubmit }: globalFormProps
                             )}
                         />
                         <FormField
-                            control={coverForm.control}
+                            control={globalForm.control}
                             name='fix_for'
                             render={({ field }) => (
                                 <FormItem>
@@ -55,7 +49,7 @@ const GlobalForm = ({ coverForm, form, onSubmit, handleSubmit }: globalFormProps
                             )}
                         />
                         <FormField
-                            control={coverForm.control}
+                            control={globalForm.control}
                             name='persion1'
                             render={({ field }) => (
                                 <FormItem>
@@ -70,7 +64,7 @@ const GlobalForm = ({ coverForm, form, onSubmit, handleSubmit }: globalFormProps
                             )}
                         />
                         <FormField
-                            control={coverForm.control}
+                            control={globalForm.control}
                             name='persion2'
                             render={({ field }) => (
                                 <FormItem>
@@ -86,7 +80,7 @@ const GlobalForm = ({ coverForm, form, onSubmit, handleSubmit }: globalFormProps
                         />
 
                         <FormField
-                            control={coverForm.control}
+                            control={globalForm.control}
                             name='no'
                             render={({ field }) => (
                                 <FormItem>
@@ -102,7 +96,7 @@ const GlobalForm = ({ coverForm, form, onSubmit, handleSubmit }: globalFormProps
                         />
 
                         <FormField
-                            control={coverForm.control}
+                            control={globalForm.control}
                             name='petitioner_complaint'
                             render={({ field }) => (
                                 <FormItem>
@@ -118,7 +112,7 @@ const GlobalForm = ({ coverForm, form, onSubmit, handleSubmit }: globalFormProps
                         />
 
                         <FormField
-                            control={coverForm.control}
+                            control={globalForm.control}
                             name='respondent'
                             render={({ field }) => (
                                 <FormItem>
@@ -134,7 +128,7 @@ const GlobalForm = ({ coverForm, form, onSubmit, handleSubmit }: globalFormProps
                         />
 
                         <FormField
-                            control={coverForm.control}
+                            control={globalForm.control}
                             name='place'
                             render={({ field }) => (
                                 <FormItem>
@@ -148,9 +142,54 @@ const GlobalForm = ({ coverForm, form, onSubmit, handleSubmit }: globalFormProps
                                 </FormItem>
                             )}
                         />
+                        <FormField
+                            control={globalForm.control}
+                            name='brief_for'
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Brief For</FormLabel>
+                                    <FormControl>
+                                        <Input
+                                            placeholder='Please Enter Your Brief For.'
+                                            {...field}
+                                        />
+                                    </FormControl>
+                                </FormItem>
+                            )}
+                        />
+                        <FormField
+                            control={globalForm.control}
+                            name='opposite_counsel'
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Opposite Counsel</FormLabel>
+                                    <FormControl>
+                                        <Input
+                                            placeholder='Please Enter Your Opposite Counsel.'
+                                            {...field}
+                                        />
+                                    </FormControl>
+                                </FormItem>
+                            )}
+                        />
+                        <FormField
+                            control={globalForm.control}
+                            name='books_citation'
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Books Citation</FormLabel>
+                                    <FormControl>
+                                        <Input
+                                            placeholder='Please Enter Books Citation.'
+                                            {...field}
+                                        />
+                                    </FormControl>
+                                </FormItem>
+                            )}
+                        />
 
                         <FormField
-                            control={coverForm.control}
+                            control={globalForm.control}
                             name='date'
                             render={({ field }) => (
                                 <FormItem>
@@ -166,7 +205,7 @@ const GlobalForm = ({ coverForm, form, onSubmit, handleSubmit }: globalFormProps
                             )}
                         />
                         <FormField
-                            control={coverForm.control}
+                            control={globalForm.control}
                             name='signature'
                             render={({ field }) => (
                                 <FormItem>
@@ -181,7 +220,7 @@ const GlobalForm = ({ coverForm, form, onSubmit, handleSubmit }: globalFormProps
                             )}
                         />
                         <FormField
-                            control={coverForm.control}
+                            control={globalForm.control}
                             name='authorized_by'
                             render={({ field }) => (
                                 <FormItem>
@@ -196,7 +235,7 @@ const GlobalForm = ({ coverForm, form, onSubmit, handleSubmit }: globalFormProps
                             )}
                         />
                         <FormField
-                            control={coverForm.control}
+                            control={globalForm.control}
                             name='address'
                             render={({ field }) => (
                                 <FormItem>
@@ -211,7 +250,7 @@ const GlobalForm = ({ coverForm, form, onSubmit, handleSubmit }: globalFormProps
                             )}
                         />
                         <FormField
-                            control={coverForm.control}
+                            control={globalForm.control}
                             name='other_name'
                             render={({ field }) => (
                                 <FormItem>
@@ -226,7 +265,7 @@ const GlobalForm = ({ coverForm, form, onSubmit, handleSubmit }: globalFormProps
                             )}
                         />
                         <FormField
-                            control={form.control}
+                            control={globalForm.control}
                             name='name'
                             render={({ field }) => (
                                 <FormItem>
@@ -242,7 +281,7 @@ const GlobalForm = ({ coverForm, form, onSubmit, handleSubmit }: globalFormProps
                             )}
                         />
                         <FormField
-                            control={form.control}
+                            control={globalForm.control}
                             name='degree'
                             render={({ field }) => (
                                 <FormItem>
@@ -257,7 +296,7 @@ const GlobalForm = ({ coverForm, form, onSubmit, handleSubmit }: globalFormProps
                             )}
                         />
                         <FormField
-                            control={form.control}
+                            control={globalForm.control}
                             name='profession'
                             render={({ field }) => (
                                 <FormItem>
@@ -273,7 +312,7 @@ const GlobalForm = ({ coverForm, form, onSubmit, handleSubmit }: globalFormProps
                         />
 
                         <FormField
-                            control={form.control}
+                            control={globalForm.control}
                             name='residential'
                             render={({ field }) => (
                                 <FormItem>
@@ -289,7 +328,7 @@ const GlobalForm = ({ coverForm, form, onSubmit, handleSubmit }: globalFormProps
                         />
 
                         <FormField
-                            control={form.control}
+                            control={globalForm.control}
                             name='phoneno'
                             render={({ field }) => (
                                 <FormItem>
@@ -304,7 +343,7 @@ const GlobalForm = ({ coverForm, form, onSubmit, handleSubmit }: globalFormProps
                             )}
                         />
                         <FormField
-                            control={form.control}
+                            control={globalForm.control}
                             name='before_the_honable'
                             render={({ field }) => (
                                 <FormItem>
@@ -313,11 +352,7 @@ const GlobalForm = ({ coverForm, form, onSubmit, handleSubmit }: globalFormProps
                                         <Input
                                             placeholder=' Before the honable'
                                             {...field}
-                                            value=''
-                                            onChange={(e) => {
-                                                field.onChange(e);
-                                                handleOnChange(e)
-                                            }}
+
                                         />
                                     </FormControl>
                                 </FormItem>
@@ -326,7 +361,7 @@ const GlobalForm = ({ coverForm, form, onSubmit, handleSubmit }: globalFormProps
 
 
                         <FormField
-                            control={form.control}
+                            control={globalForm.control}
                             name='email'
                             render={({ field }) => (
                                 <FormItem>
@@ -342,7 +377,7 @@ const GlobalForm = ({ coverForm, form, onSubmit, handleSubmit }: globalFormProps
                         />
 
                         <FormField
-                            control={form.control}
+                            control={globalForm.control}
                             name='recipient'
                             render={({ field }) => (
                                 <FormItem>
