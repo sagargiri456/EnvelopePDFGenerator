@@ -55,9 +55,12 @@ const Sidebar: React.FC = () => {
         authorized_by: '',
         address: '',
         other_name: '',
+        persion1: '',
+        persion2: '',
     });
 
     const handleFormSubmitGlobal = (data: any) => {
+        console.log(data.name)
         setFormDataGlobal({
             name: data.name,
             llmreplacement: data.degree,
@@ -77,6 +80,8 @@ const Sidebar: React.FC = () => {
             authorized_by: data.authorized_by,
             address: data.address,
             other_name: data.other_name,
+            persion1: data.persion1,
+            persion2: data.persion2,
         });
     };
     const [formData1, setFormData1] = useState({
@@ -197,9 +202,9 @@ const Sidebar: React.FC = () => {
 
                 {activeSection === 'Dashboard' &&
                     <div>
-                        {/* <div><h1>Submit The Below Form.</h1><div><EnvelopeStoreModal onSubmit={handleFormSubmit} /></div>
+                        <div><h1>Submit The Below Form.</h1><div><EnvelopeStoreModal onSubmit={handleFormSubmit} /></div>
 
-                        </div> */}
+                        </div>
                         <Envelope
                             name={formData.name}
                             llmreplacement={formData.llmreplacement}
@@ -214,12 +219,12 @@ const Sidebar: React.FC = () => {
 
                 {activeSection === 'Settings' &&
                     <div>
-                        {/* <div><h1>
+                        <div><h1>
                             Submit The Below Form.</h1><div>
                                 <CoverStoreModal onSubmit={handleFormSubmitCover} />
                             </div>
 
-                        </div> */}
+                        </div>
                         <MemoOfAppearance
                             court_name={formData1.court_name}
                             fix_for={formData1.fix_for}
@@ -235,7 +240,59 @@ const Sidebar: React.FC = () => {
                     </div>}
 
 
-                {activeSection === 'Profile' && <File />}
+                {activeSection === 'Profile' &&
+                    <div>
+                        <h1>File Document</h1>
+                        <div>
+                            <GlobalStoreModal onSubmit={handleFormSubmitGlobal} />
+                        </div>
+
+                        <File
+                            court_name={formDataGlobal.court_name}
+                            fix_for={formDataGlobal.fix_for}
+                            no={formDataGlobal.no}
+                            date={formDataGlobal.date}
+                            petitioner_complaint={formDataGlobal.petitioner_complaint}
+                            respondent={formDataGlobal.respondent}
+                            place={formDataGlobal.place}
+                            signature={formDataGlobal.signature}
+                            authorized_by={formDataGlobal.authorized_by}
+                            other_name={formDataGlobal.other_name}
+                            address={formDataGlobal.address}
+                            name={formDataGlobal.name}
+                            llmreplacement={formDataGlobal.llmreplacement}
+                            designation={formDataGlobal.designation}
+                            resident={formDataGlobal.resident}
+                            mobileno={formDataGlobal.mobileno}
+                            email={formDataGlobal.email}
+                            recipientaddress={formDataGlobal.recipientaddress}
+                            imgUrl="/abcd"
+                            persion1={formDataGlobal.persion1}
+                            persion2={formDataGlobal.persion2}
+                        />
+                        <MemoOfAppearance
+                            court_name={formDataGlobal.court_name}
+                            fix_for={formDataGlobal.fix_for}
+                            no={formDataGlobal.no}
+                            date={formDataGlobal.date}
+                            petitioner_complaint={formDataGlobal.petitioner_complaint}
+                            respondent={formDataGlobal.respondent}
+                            place={formDataGlobal.place}
+                            signature={formDataGlobal.signature}
+                            authorized_by={formDataGlobal.authorized_by}
+                            other_name={formDataGlobal.other_name}
+                            address={formDataGlobal.address} />
+                        <Envelope
+                            name={formDataGlobal.name}
+                            llmreplacement={formDataGlobal.llmreplacement}
+                            designation={formDataGlobal.designation}
+                            resident={formDataGlobal.resident}
+                            mobileno={formDataGlobal.mobileno}
+                            email={formDataGlobal.email}
+                            recipientaddress={formDataGlobal.recipientaddress}
+                            imgUrl="/abcd" />
+                    </div>
+                }
                 {activeSection === 'LegalDoc' && <LegalDoc />}
 
             </div>

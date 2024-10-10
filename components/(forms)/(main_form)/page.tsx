@@ -1,5 +1,6 @@
 "use client";
 import React from 'react'
+import { useState } from 'react'
 
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
@@ -10,11 +11,14 @@ interface globalFormProps {
     coverForm: any;
     onSubmit: (data: any) => void;
     handleSubmit: (data: any) => void
-    handleSubmitFormGlobal: (data: any) => void
-
 }
 
-const GlobalForm = ({ coverForm, form, onSubmit, handleSubmit,handleSubmitFormGlobal}: globalFormProps) => {
+const GlobalForm = ({ coverForm, form, onSubmit, handleSubmit }: globalFormProps) => {
+    const [value, setValue] = useState('');
+    const handleOnChange = (e: { target: { value: React.SetStateAction<string>; }; }) => {
+        setValue(e.target.value);
+    }
+
     return (
         <div>
             <div className="space-y-4 py-2 pb-4">
@@ -32,7 +36,6 @@ const GlobalForm = ({ coverForm, form, onSubmit, handleSubmit,handleSubmitFormGl
                                             {...field}
                                         />
                                     </FormControl>
-                                    <FormMessage></FormMessage>
                                 </FormItem>
                             )}
                         />
@@ -48,7 +51,36 @@ const GlobalForm = ({ coverForm, form, onSubmit, handleSubmit,handleSubmitFormGl
                                             {...field}
                                         />
                                     </FormControl>
-                                    <FormMessage>Required</FormMessage>
+                                </FormItem>
+                            )}
+                        />
+                        <FormField
+                            control={coverForm.control}
+                            name='persion1'
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>First Persion</FormLabel>
+                                    <FormControl>
+                                        <Input
+                                            placeholder='Please Enter the First Persion'
+                                            {...field}
+                                        />
+                                    </FormControl>
+                                </FormItem>
+                            )}
+                        />
+                        <FormField
+                            control={coverForm.control}
+                            name='persion2'
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Second Persion</FormLabel>
+                                    <FormControl>
+                                        <Input
+                                            placeholder='Please Enter the First Persion Name.'
+                                            {...field}
+                                        />
+                                    </FormControl>
                                 </FormItem>
                             )}
                         />
@@ -65,7 +97,6 @@ const GlobalForm = ({ coverForm, form, onSubmit, handleSubmit,handleSubmitFormGl
                                             {...field}
                                         />
                                     </FormControl>
-                                    <FormMessage>Required</FormMessage>
                                 </FormItem>
                             )}
                         />
@@ -82,7 +113,6 @@ const GlobalForm = ({ coverForm, form, onSubmit, handleSubmit,handleSubmitFormGl
                                             {...field}
                                         />
                                     </FormControl>
-                                    <FormMessage>Required</FormMessage>
                                 </FormItem>
                             )}
                         />
@@ -99,7 +129,6 @@ const GlobalForm = ({ coverForm, form, onSubmit, handleSubmit,handleSubmitFormGl
                                             {...field}
                                         />
                                     </FormControl>
-                                    <FormMessage>Required</FormMessage>
                                 </FormItem>
                             )}
                         />
@@ -116,7 +145,6 @@ const GlobalForm = ({ coverForm, form, onSubmit, handleSubmit,handleSubmitFormGl
                                             {...field}
                                         />
                                     </FormControl>
-                                    <FormMessage>Required</FormMessage>
                                 </FormItem>
                             )}
                         />
@@ -134,7 +162,6 @@ const GlobalForm = ({ coverForm, form, onSubmit, handleSubmit,handleSubmitFormGl
                                             {...field}
                                         />
                                     </FormControl>
-                                    <FormMessage>Required</FormMessage>
                                 </FormItem>
                             )}
                         />
@@ -150,7 +177,6 @@ const GlobalForm = ({ coverForm, form, onSubmit, handleSubmit,handleSubmitFormGl
                                             {...field}
                                         />
                                     </FormControl>
-                                    <FormMessage>Required</FormMessage>
                                 </FormItem>
                             )}
                         />
@@ -166,7 +192,6 @@ const GlobalForm = ({ coverForm, form, onSubmit, handleSubmit,handleSubmitFormGl
                                             {...field}
                                         />
                                     </FormControl>
-                                    <FormMessage>Required</FormMessage>
                                 </FormItem>
                             )}
                         />
@@ -182,7 +207,6 @@ const GlobalForm = ({ coverForm, form, onSubmit, handleSubmit,handleSubmitFormGl
                                             {...field}
                                         />
                                     </FormControl>
-                                    <FormMessage>Required</FormMessage>
                                 </FormItem>
                             )}
                         />
@@ -198,7 +222,6 @@ const GlobalForm = ({ coverForm, form, onSubmit, handleSubmit,handleSubmitFormGl
                                             {...field}
                                         />
                                     </FormControl>
-                                    <FormMessage>Required</FormMessage>
                                 </FormItem>
                             )}
                         />
@@ -230,7 +253,6 @@ const GlobalForm = ({ coverForm, form, onSubmit, handleSubmit,handleSubmitFormGl
                                             {...field}
                                         />
                                     </FormControl>
-                                    <FormMessage>Required</FormMessage>
                                 </FormItem>
                             )}
                         />
@@ -246,7 +268,6 @@ const GlobalForm = ({ coverForm, form, onSubmit, handleSubmit,handleSubmitFormGl
                                             {...field}
                                         />
                                     </FormControl>
-                                    <FormMessage>Required</FormMessage>
                                 </FormItem>
                             )}
                         />
@@ -263,7 +284,6 @@ const GlobalForm = ({ coverForm, form, onSubmit, handleSubmit,handleSubmitFormGl
                                             {...field}
                                         />
                                     </FormControl>
-                                    <FormMessage>Required</FormMessage>
                                 </FormItem>
                             )}
                         />
@@ -280,10 +300,30 @@ const GlobalForm = ({ coverForm, form, onSubmit, handleSubmit,handleSubmitFormGl
                                             {...field}
                                         />
                                     </FormControl>
-                                    <FormMessage>Required</FormMessage>
                                 </FormItem>
                             )}
                         />
+                        <FormField
+                            control={form.control}
+                            name='before_the_honable'
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Before The Honable</FormLabel>
+                                    <FormControl>
+                                        <Input
+                                            placeholder=' Before the honable'
+                                            {...field}
+                                            value=''
+                                            onChange={(e) => {
+                                                field.onChange(e);
+                                                handleOnChange(e)
+                                            }}
+                                        />
+                                    </FormControl>
+                                </FormItem>
+                            )}
+                        />
+
 
                         <FormField
                             control={form.control}
@@ -297,7 +337,6 @@ const GlobalForm = ({ coverForm, form, onSubmit, handleSubmit,handleSubmitFormGl
                                             {...field}
                                         />
                                     </FormControl>
-                                    <FormMessage>Required</FormMessage>
                                 </FormItem>
                             )}
                         />
@@ -314,7 +353,6 @@ const GlobalForm = ({ coverForm, form, onSubmit, handleSubmit,handleSubmitFormGl
                                             {...field}
                                         />
                                     </FormControl>
-                                    <FormMessage>Required</FormMessage>
                                 </FormItem>
                             )}
                         />

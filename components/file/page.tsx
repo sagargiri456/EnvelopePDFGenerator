@@ -1,5 +1,59 @@
-const File: React.FC = () => {
-    return (
+import React, { useState } from 'react';
+import Image from 'next/image';
+
+interface MainFormProps {
+    name: string;
+    llmreplacement: string;
+    designation: string;
+    resident: string;
+    mobileno: string;
+    email: string;
+    recipientaddress: string;
+    imgUrl: string;
+    court_name: string;
+    no: string;
+    fix_for: string;
+    petitioner_complaint: string;
+    respondent: string;
+    place: string;
+    date: string;
+    signature: string;
+    authorized_by: string;
+    address: string;
+    other_name: string;
+    persion1: string;
+    persion2: string;
+}
+
+const File: React.FC<MainFormProps> = ({
+    name,
+    llmreplacement,
+    designation,
+    resident,
+    mobileno,
+    email,
+    recipientaddress,
+    imgUrl,
+    court_name,
+    no,
+    fix_for,
+    petitioner_complaint,
+    respondent,
+    place,
+    date,
+    signature,
+    authorized_by,
+    address,
+    other_name,
+    persion1,
+    persion2,
+}) => {
+    const [value, setValue] = useState(' ');
+    const handleOnChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
+        setValue(e.target.value);
+    };
+
+    return ( 
         <div className="max-w-3xl mx-auto p-4 bg-yellow-100 border border-gray-300 rounded-lg shadow-md">
             {/* Header */}
             <div className="text-center">
@@ -44,20 +98,22 @@ const File: React.FC = () => {
                         <input
                             type="text"
                             className="w-full bg-transparent p-1"
+                            value={value}
+                            onChange={handleOnChange}
                         />
                         <hr className="border-2 border-gray-800 shadow-lg my-4" />
                     </div>
                 </div>
                 <div className="grid grid-cols-3 gap-4 mb-4">
                     <div>
-                        <p><u>Hello World</u></p>
+                        <p><u>{persion1}</u></p>
                         <hr className="border-2 border-gray-800 shadow-lg my-4" />
                     </div>
                     <div>
                         <p className="text-center text-xl">Versus</p>
                     </div>
                     <div>
-                        <p><u>Hello World</u></p>
+                        <p><u>{persion2}</u></p>
                         <hr className="border-2 border-gray-800 shadow-lg my-4" />
                     </div>
                 </div>
@@ -67,6 +123,8 @@ const File: React.FC = () => {
                     <input
                         type="text"
                         className="w-full bg-transparent p-1"
+                        value={value}
+                        onChange={handleOnChange}
                     />
                     <hr className="border-2 border-gray-800 shadow-lg my-4" />
                 </div>

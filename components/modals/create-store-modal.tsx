@@ -96,7 +96,7 @@ export const EnvelopeStoreModal = ({ onSubmit }: EnvelopeStoreModalProps) => {
     }
     const handleSubmit = async (values: z.infer<typeof envelopeFormSchema>) => {
         onSubmit(values);
-        
+
     };
 
     // Render the Modal component with values from the store
@@ -165,10 +165,7 @@ export const GlobalStoreModal = ({ onSubmit }: GlobalStoreModalProps) => {
     const handleSubmit = async (values: z.infer<typeof coverFormSchema>) => {
         onSubmit(values);
     };
-    const handleSubmitFormGlobal = async (values: z.infer<typeof envelopeFormSchema>) => {
-        onSubmit(values);
-        
-    };
+    
 
     // Render the Modal component with values from the store
     return (
@@ -183,7 +180,6 @@ export const GlobalStoreModal = ({ onSubmit }: GlobalStoreModalProps) => {
             coverForm={coverForm}
             onSubmit={onSubmit}
             handleSubmit={handleSubmit}
-            handleSubmitFormGlobal={handleSubmitFormGlobal}
         />
         // </Modal>
     );

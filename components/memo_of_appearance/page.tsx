@@ -85,7 +85,7 @@ const MemoOfAppearance: React.FC<MemoOfAppearanceProps> = ({
                     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="150" height="100" viewBox="0 0 200 700">
                         <title>Closing Curly Brace</title>
                         <g className="closing_curly_bracket_image" id="closing_curly_brace_pic" transform="translate(10,10)">
-                            <path fill="none" stroke="#000000" stroke-width="5" d="M0,0 A100, 173.20508075688772 0 0 1  100, 173.20508075688772 A100, 173.20508075688772 0 0 0 200 346.41016151377545 A100, 173.20508075688772 0 0 0 100, 519.6152422706632 A100, 173.20508075688772 0 0 1 0, 692.8203230275509"></path>
+                            <path fill="none" stroke="#000000" strokeWidth="5" d="M0,0 A100, 173.20508075688772 0 0 1  100, 173.20508075688772 A100, 173.20508075688772 0 0 0 200 346.41016151377545 A100, 173.20508075688772 0 0 0 100, 519.6152422706632 A100, 173.20508075688772 0 0 1 0, 692.8203230275509"></path>
                         </g>
                     </svg>
                 </div>
@@ -104,7 +104,7 @@ const MemoOfAppearance: React.FC<MemoOfAppearanceProps> = ({
                     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="150" height="100" viewBox="0 0 200 700">
                         <title>Closing Curly Brace</title>
                         <g className="closing_curly_bracket_image" id="closing_curly_brace_pic" transform="translate(10,10)">
-                            <path fill="none" stroke="#000000" stroke-width="5" d="M0,0 A100, 173.20508075688772 0 0 1  100, 173.20508075688772 A100, 173.20508075688772 0 0 0 200 346.41016151377545 A100, 173.20508075688772 0 0 0 100, 519.6152422706632 A100, 173.20508075688772 0 0 1 0, 692.8203230275509"></path>
+                            <path fill="none" stroke="#000000" strokeWidth="5" d="M0,0 A100, 173.20508075688772 0 0 1  100, 173.20508075688772 A100, 173.20508075688772 0 0 0 200 346.41016151377545 A100, 173.20508075688772 0 0 0 100, 519.6152422706632 A100, 173.20508075688772 0 0 1 0, 692.8203230275509"></path>
                         </g>
                     </svg>
                 </div>
