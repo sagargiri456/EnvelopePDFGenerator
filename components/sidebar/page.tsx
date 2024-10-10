@@ -60,6 +60,7 @@ const Sidebar: React.FC = () => {
         brief_for: '',
         opposite_counsel: '',
         books_citation: '',
+        clients_contact_no:'',
     });
 
     const handleFormSubmitGlobal = (data: any) => {
@@ -90,6 +91,7 @@ const Sidebar: React.FC = () => {
             brief_for: data.brief_for,
             books_citation: data.books_citation,
             opposite_counsel: data.opposite_counsel,
+            clients_contact_no:data.clients_contact_no,
         });
     };
     const [formData1, setFormData1] = useState({
@@ -284,6 +286,7 @@ const Sidebar: React.FC = () => {
                             court_name={formDataGlobal.court_name}
                             books_citation={formDataGlobal.books_citation}
                             opposite_counsel={formDataGlobal.opposite_counsel}
+                            clients_contact_no={formDataGlobal.clients_contact_no}
                         />
                         <MemoOfAppearance
                             court_name={formDataGlobal.court_name}

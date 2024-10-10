@@ -391,6 +391,21 @@ const GlobalForm = ({ globalForm, onSubmit, handleSubmit }: globalFormProps) => 
                                 </FormItem>
                             )}
                         />
+                        <FormField
+                            control={globalForm.control}
+                            name='clients_contact_no'
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel> Contact Number:</FormLabel>
+                                    <FormControl>
+                                        <Input
+                                            placeholder='Please Enter clients contact number.'
+                                            {...field}
+                                        />
+                                    </FormControl>
+                                </FormItem>
+                            )}
+                        />
 
 
                         <div className='pt-6 space-x-2 flex items-center justify-end'>

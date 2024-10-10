@@ -26,6 +26,7 @@ interface MainFormProps {
     brief_for: string;
     opposite_counsel: string;
     books_citation: string;
+    clients_contact_no: string;
 }
 
 const File: React.FC<MainFormProps> = ({
@@ -53,6 +54,7 @@ const File: React.FC<MainFormProps> = ({
     brief_for,
     opposite_counsel,
     books_citation,
+    clients_contact_no,
 }) => {
     console.log("Starting persion 1 and 2")
     console.log(name)
@@ -293,6 +295,7 @@ const File: React.FC<MainFormProps> = ({
                 <input
                     type="text"
                     className="w-full bg-transparent p-1"
+                    value={clients_contact_no}
                 />
                 <hr className="border-2 border-gray-800 shadow-lg my-4" />
             </div>

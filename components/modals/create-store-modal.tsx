@@ -52,9 +52,12 @@ const globalFormSchema = z.object({
     authorized_by: z.string(),
     address: z.string(),
     other_name: z.string(),
-
-
-
+    persion1:z.string(),
+    persion2:z.string(),
+    opposite_counsel:z.string(),
+    brief_for: z.string(),
+    books_citation: z.string(),
+    clients_contact_no:z.string(),
 });
 
 
