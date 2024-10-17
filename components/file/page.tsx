@@ -271,7 +271,6 @@ const File: React.FC<MainFormProps> = ({
                 <input
                     type="text"
                     className="w-full bg-transparent p-1"
-                    value={clients_contact_no}
                 />
                 <hr className="border-2 border-gray-800 shadow-lg my-4" />
             </div>
